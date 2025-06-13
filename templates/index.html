@@ -22,3 +22,22 @@
     </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NYC Colleges</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>NYC Colleges</h1>
+    <div class="college-container">
+        {% for college in colleges %}
+            <div class="college-card">
+                <h2>{{ college.name }}</h2>
+                <p><strong>Address:</strong> {{ college.streetname }}</p>
+                <p><a href="{{ college.url }}" target="_blank">Visit Website</a></p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
