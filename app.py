@@ -6,8 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     response = requests.get("https://data.cityofnewyork.us/resource/8pnn-kkif.json")
-    data = response.json()
-    college_list = data['results']
+    college_list = response.json()
 
     colleges = []
 
@@ -17,3 +16,7 @@ def index():
             'url': college['url'],
             'streetname': college['streetname']
         })
+    return render_template("index.html", colleges=colleges)
+
+if __name__ == '__main__':
+    app.run(debug=True)
